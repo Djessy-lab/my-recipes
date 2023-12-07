@@ -19,6 +19,6 @@ export default function DeleteButton({recipeId}){
     }
 
     return (
-        <button onClick={handleClick}>Delete Recipe</button>
+        <button onClick={handleClick} className="bg-red-400 text-white p-4 rounded">Delete Recipe</button>
     )
 }
