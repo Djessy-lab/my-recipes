@@ -1,12 +1,20 @@
 import { NextResponse } from "next/server";
 import prisma from "@/app/lib/prisma";
 
-export async function DELETE({params}){
-    const id = params.id;
+export async function DELETE(request, {params}) {
+  const id = params.id;
 
-    const recipe = await prisma.recipes.delete({
-        where: {id: id}
-    })
+  if (!id) {
+      return new Response('Invalid ID', { status: 400 });
+  }
 
-    return NextResponse.json(recipe)
+  try {
+      const deletedRecipe = await prisma.recipes.delete({
+          where: { id: Number(id) }
+      });
+      return new Response(JSON.stringify(deletedRecipe), { status: 200 });
+  } catch (error) {
+      console.error('Error deleting recipe:', error);
+      return new Response('Error deleting recipe', { status: 500 });
+  }
 }

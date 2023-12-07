@@ -11,6 +11,7 @@ export default function DeleteButton({recipeId}){
                 method: 'DELETE'
             })
             router.push('/')
+            router.refresh()
         } catch(e){
             console.error(e)
         }
