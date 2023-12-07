@@ -21,7 +21,7 @@ export default function DeleteButton({ recipeId }) {
   return (
     <div>
       <div className="flex justify-center">
-        <button onClick={handleClick} className="bg-red-400 text-white p-4 rounded">Delete Recipe</button>
+        <button onClick={handleClick} className="bg-red-500 text-white p-4 rounded">Delete Recipe</button>
       </div>
     </div>
   )
