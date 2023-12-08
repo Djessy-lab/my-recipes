@@ -1,4 +1,5 @@
 'use client'
+import { Trash } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 export default function DeleteButton({ recipeId }) {
@@ -21,7 +22,9 @@ export default function DeleteButton({ recipeId }) {
   return (
     <div>
       <div className="flex justify-center">
-        <button onClick={handleClick} className="bg-red-500 text-white p-4 rounded">Delete Recipe</button>
+        <button onClick={handleClick} >
+          <Trash size={32} color='red' />
+        </button>
       </div>
     </div>
   )

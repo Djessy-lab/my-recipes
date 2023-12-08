@@ -1,9 +1,11 @@
 'use client'
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const CreateRecipe = () => {
+const EditRecipe = ({ params }) => {
+  const id = params.id;
   const router = useRouter();
   const [recipe, setRecipe] = useState({
     title: '',
@@ -12,33 +14,43 @@ const CreateRecipe = () => {
     ingredients: '',
   });
 
+  useEffect(() => {
+    const fetchRecipe = async () => {
+      const response = await fetch(`/api/recipes/${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      setRecipe(data);
+    };
+
+    fetchRecipe();
+  }, [id]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/post_recipes', {
-        method: 'POST',
+      const response = await fetch(`/api/edit_recipe/${id}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(recipe),
+        body: JSON.stringify({ id, ...recipe }),
       });
       if (response.ok) {
-        const newRecipe = await response.json();
-        console.log('Nouvelle recette créée :', newRecipe);
-        router.refresh();
+        const updatedRecipe = await response.json();
+        console.log('Recipe updated:', updatedRecipe);
+        router.push(`/${id}`);
+        router.refresh()
       } else {
-        console.error('Erreur lors de la création de la recette');
+        console.error('Error updating recipe');
       }
     } catch (error) {
-      console.error('Erreur lors de la requête :', error);
+      console.error('An error occurred:', error);
     }
-    setRecipe({
-      title: '',
-      instructions: '',
-      image: '',
-      ingredients: '',
-    });
   };
 
   const handleChange = (e) => {
@@ -85,15 +97,22 @@ const CreateRecipe = () => {
             type="submit"
             className="block w-full bg-secondary text-white rounded py-2 px-4 hover:bg-primary transition duration-300"
           >
-            Créer
+            Modifier
           </button>
+          <Link href={`/${id}`}>
+            <div
+              className="text-center mt-4 block w-full bg-secondary text-white rounded py-2 px-4 hover:bg-primary transition duration-300"
+            >
+              Retour
+            </div>
+          </Link>
         </form>
       </div>
     </div>
   );
 };
 
-export default CreateRecipe;
+export default EditRecipe;
 
 
 //unsplash random : https://source.unsplash.com/random/?food
