@@ -1,3 +1,4 @@
+import Link from "next/link"
 import CreateRecipe from "../CreateRecipe"
 import Description from "../Description"
 import DisplayRecipes from "../DisplayRecipes"

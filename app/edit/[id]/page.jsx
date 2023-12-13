@@ -61,7 +61,7 @@ const EditRecipe = ({ params }) => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="bg-gray-200 rounded-lg p-8 w-[50vw]">
-        <h1 className="text-2xl font-semibold bg-gray-200 text-center mb-6">Nouvelle recette</h1>
+        <h1 className="text-2xl font-semibold bg-gray-200 text-center mb-6">Modifier la recette</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
