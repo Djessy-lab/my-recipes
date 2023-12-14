@@ -1,13 +1,12 @@
 import Link from 'next/link';
-import prisma from '../../lib/prisma'
 
-const DisplayRecipes =  ({recipes}) => {
-  // const recipes = await prisma.recipes.findMany()
+const DisplayRecipes = ({recipes}) => {
   const recipeCount = recipes.length;
   const gridClass = recipeCount === 1 ? 'grid-cols-1' : recipeCount === 2 ? 'grid-cols-2' : 'grid-cols-3';
 
   return (
     <div>
+      <h1 className='text-6xl'>{recipeCount}</h1>
       <div className={`grid ${gridClass} gap-8 p-8 justify-center mb-10`}>
         {recipes.map((recipe) => (
           <Link key={recipe.id} href={`/${recipe.id}`}>
