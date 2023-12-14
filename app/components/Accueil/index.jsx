@@ -4,7 +4,8 @@ import Description from "../Description"
 import DisplayRecipes from "../DisplayRecipes"
 import GlobalLayout from "./layout"
 
-const Accueil = () => {
+const Accueil = async () => {
+  const recipes = await prisma.recipes.findMany()
   return (
     <GlobalLayout>
       <div>
@@ -16,7 +17,7 @@ const Accueil = () => {
           <CreateRecipe />
         </div>
         <div className='mt-20 mb-32'>
-          <DisplayRecipes />
+          <DisplayRecipes recipes={recipes} />
         </div>
       </div>
     </GlobalLayout>
