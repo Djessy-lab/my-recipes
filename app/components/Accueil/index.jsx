@@ -1,4 +1,4 @@
-import Link from "next/link"
+import prisma from "@/app/lib/prisma"
 import CreateRecipe from "../CreateRecipe"
 import Description from "../Description"
 import DisplayRecipes from "../DisplayRecipes"
