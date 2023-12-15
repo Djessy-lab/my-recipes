@@ -6,7 +6,6 @@ const DisplayRecipes = ({recipes}) => {
 
   return (
     <div>
-      <h1 className='text-6xl'>{recipeCount}</h1>
       <div className={`grid ${gridClass} gap-8 p-8 justify-center mb-10`}>
         {recipes.map((recipe) => (
           <Link key={recipe.id} href={`/${recipe.id}`}>
