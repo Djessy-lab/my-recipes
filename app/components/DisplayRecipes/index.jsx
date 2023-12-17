@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import prisma from '../../lib/prisma'
 
-const DisplayRecipes = ({recipes}) => {
+const DisplayRecipes = async () => {
+  const recipes = await prisma.recipes.findMany()
   const recipeCount = recipes.length;
   const gridClass = recipeCount === 1 ? 'grid-cols-1' : recipeCount === 2 ? 'grid-cols-2' : 'grid-cols-3';
 
