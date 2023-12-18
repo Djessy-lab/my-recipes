@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import prisma from '../../lib/prisma'
+import { unstable_noStore as noStore } from "next/cache";
 
 const DisplayRecipes = async () => {
+  noStore();
   const recipes = await prisma.recipes.findMany()
   const recipeCount = recipes.length;
   const gridClass = recipeCount === 1 ? 'grid-cols-1' : recipeCount === 2 ? 'grid-cols-2' : 'grid-cols-3';
