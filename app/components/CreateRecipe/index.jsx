@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation';
+import { root } from 'postcss';
 import React, { useState } from 'react';
 
 const CreateRecipe = () => {
@@ -26,6 +27,7 @@ const CreateRecipe = () => {
       if (response.ok) {
         const newRecipe = await response.json();
         console.log('Nouvelle recette créée :', newRecipe);
+        router.push('/')
         router.refresh();
       } else {
         console.error('Erreur lors de la création de la recette');

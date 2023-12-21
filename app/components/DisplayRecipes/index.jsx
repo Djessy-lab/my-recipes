@@ -8,11 +8,11 @@ const DisplayRecipes = async () => {
   noStore();
   const recipes = await prisma.recipes.findMany()
   const recipeCount = recipes.length;
-  const gridClass = recipeCount === 1 ? 'grid-cols-1' : recipeCount === 2 ? 'grid-cols-2' : 'grid-cols-3';
+  const gridClass = recipeCount === 1 ? 'lg:grid-cols-1' : recipeCount === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3';
 
   return (
     <div>
-      <div className={`grid ${gridClass} gap-8 p-8 justify-center mb-10`}>
+      <div className={`grid ${gridClass} sm:grid-cols-1 gap-8 p-8 justify-center mb-10`}>
         {recipes.map((recipe) => (
           <Link key={recipe.id} href={`/${recipe.id}`}>
             <div

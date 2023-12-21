@@ -27,13 +27,13 @@ const Recipe = async ({ params }) => {
       </div>
       <h1 className='text-6xl text-center font-bold font-serif mt-10 mb-10 text-emerald-800'>{recipe.title}</h1>
       <div className='mx-auto mb-10 h-96 bg-contain bg-no-repeat bg-center' style={{ backgroundImage: `url(${recipe.image})` }}></div>
-      <div className='bg-background w-[18vw] h-96 max-h-96 p-10 bottom-0 fixed rounded'>
+      <div className='bg-background lg:w-[18vw] h-96 max-h-96 p-10 bottom-0 lg:fixed rounded'>
         <p>Ingrédients : </p>
         <hr />
         <br />
         <p>{recipe.ingredients}</p>
       </div>
-      <div className='bg-background w-[60vw] h-96 rounded p-8 mb-32 mx-auto'>
+      <div className='bg-background lg:w-[60vw] h-96 rounded p-8 mb-32 mx-auto mt-10'>
         <p>Instructions : </p>
         <hr />
         <br />
