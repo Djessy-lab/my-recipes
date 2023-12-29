@@ -1,4 +1,4 @@
-import nextAuth, { NextAuthOptions } from "next-auth"
+import { NextAuthOptions } from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import prisma from "../../../app/lib/prisma"
 import NextAuth from "next-auth/next"
