@@ -1,4 +1,4 @@
-import prisma from "@/app/lib/prisma";
+import prisma from "../../../lib/prisma";
 
 export async function PUT(request, {params}) {
   const id = params.id;

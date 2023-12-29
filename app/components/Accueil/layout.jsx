@@ -1,28 +1,38 @@
-import { Pen, User, Utensils } from 'lucide-react';
+import {  Plus, Utensils } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { LoginButton } from "../LoginButton";
+import { LogoutButton } from "../LogoutButton";
+import { authConfig } from '../../../pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
 
-const GlobalLayout = ({ children }) => {
+const GlobalLayout = async ({ children }) => {
+  const session = await getServerSession(authConfig);
+
   return (
     <div>
-      {/* Barre de navigation commune à toutes les pages */}
       <nav>
         <div className='bg-transparent flex justify-between p-2 fixed left-0 right-0 z-50'>
           <Link href='/'>
             <Utensils size={32} className='text-emerald-600 ml-2' />
           </Link>
           <div className='flex mr-2'>
-            <Link href='/createRecipes' className='mr-4'>
-              <Pen size={32} className='text-emerald-600' />
+            <Link href='/createRecipes' className='mr-8 pt-2'>
+              <Plus size={32} className='text-emerald-600' />
             </Link>
-            <Link href='/'>
-              <User size={32} className='text-emerald-600' />
-            </Link>
+            {session ? (
+              <>
+                <Link href="/userProfile" className='mr-8'>
+                  <div className='font-semibold mt-1 rounded shadow bg-zinc-100 hover:bg-emerald-200 p-2'>{session.user.name}</div>
+                </Link>
+                <LogoutButton />
+              </>
+            ) : (
+              <LoginButton />
+            )}
           </div>
         </div>
       </nav>
-
-      {/* Contenu de la page */}
       <main>
         {children}
       </main>
