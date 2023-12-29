@@ -18,8 +18,8 @@ if(!githubId || !githubSecret || !googleId || !googleSecret) {
 export const authConfig = {
   providers: [
     GithubProvider({
-      clientId: githubId,
-      clientSecret: githubSecret
+      clientId: githubId as string,
+      clientSecret: githubSecret as string
     }),
     GoogleProvider({
       clientId: googleId,
