@@ -3,8 +3,11 @@ import prisma from '../lib/prisma';
 import { Home } from 'lucide-react';
 import DeleteButton from '../components/DeleteButton';
 import EditButton from '../components/EditButton';
+import { authConfig } from '../../pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
 
 const Recipe = async ({ params }) => {
+  const session = await getServerSession(authConfig);
   const id = params.id;
   const recipe = await prisma.recipes.findUnique({
     where: { id: Number(id) },
@@ -22,10 +25,14 @@ const Recipe = async ({ params }) => {
         <Link href='/'>
           <Home size={32} color='green' />
         </Link>
+        {session ? (
         <div className='flex gap-4'>
           <DeleteButton recipeId={recipe.id} />
           <EditButton recipeId={recipe.id} />
         </div>
+          ) : (
+            <div></div>
+          )}
       </div>
       <h1 className='text-6xl text-center font-bold font-serif mt-10 mb-10 text-emerald-800'>{recipe.title}</h1>
       <div className='mx-auto mb-10 h-96 bg-contain bg-no-repeat bg-center' style={{ backgroundImage: `url(${recipe.image})` }}></div>

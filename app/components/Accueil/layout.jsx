@@ -17,11 +17,11 @@ const GlobalLayout = async ({ children }) => {
             <Utensils size={32} className='text-emerald-600 ml-2' />
           </Link>
           <div className='flex mr-2'>
-            <Link href='/createRecipes' className='mr-8 pt-2'>
-              <Plus size={32} className='text-emerald-600' />
-            </Link>
             {session ? (
               <>
+                <Link href='/createRecipes' className='mr-8 pt-2'>
+                  <Plus size={32} className='text-emerald-600' />
+                </Link>
                 <Link href="/userProfile" className='mr-8'>
                   <div className='font-semibold mt-1 rounded shadow bg-zinc-100 hover:bg-emerald-200 p-2'>{session.user.name}</div>
                 </Link>
