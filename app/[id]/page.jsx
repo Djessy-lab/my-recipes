@@ -10,7 +10,7 @@ const Recipe = async ({ params }) => {
   const session = await getServerSession(authConfig);
   const id = params.id;
   const recipe = await prisma.recipes.findUnique({
-    where: { id: Number(id) },
+    where: { id: Number(id) }, include: { user: true }
   })
 
   if (!recipe) {
@@ -25,7 +25,7 @@ const Recipe = async ({ params }) => {
         <Link href='/'>
           <Home size={32} color='green' />
         </Link>
-        {session ? (
+        {session.user.email === recipe.user.email ? (
         <div className='flex gap-4'>
           <DeleteButton recipeId={recipe.id} />
           <EditButton recipeId={recipe.id} />
