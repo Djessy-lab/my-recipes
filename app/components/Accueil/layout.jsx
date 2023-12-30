@@ -1,4 +1,4 @@
-import {  Plus, Utensils } from 'lucide-react';
+import { Plus, Utensils } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import { LoginButton } from "../LoginButton";
@@ -25,11 +25,11 @@ const GlobalLayout = async ({ children }) => {
                 <Link href="/userProfile" className='mr-8'>
                   <div className='font-semibold mt-1 rounded shadow bg-zinc-100 hover:bg-emerald-200 p-2'>{session.user.name}</div>
                 </Link>
+                <LogoutButton />
               </>
             ) : (
               <LoginButton />
-              )}
-              <LogoutButton />
+            )}
           </div>
         </div>
       </nav>
