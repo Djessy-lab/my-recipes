@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Utensils } from "lucide-react"
 import logo from '../../../public/icon.png';
 import Image from "next/image";
+import prisma from "../../lib/prisma";
 
 
 export const User = async () => {
