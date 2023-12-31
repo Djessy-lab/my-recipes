@@ -8,11 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'text': '#131211',
-        'background': '#f8f7f6',
-        'primary': '#a19071',
-        'secondary': '#cabca2',
-        'accent': '#c2aa80',
+        'text': '#e4ecec',
+        'background': '#101616',
+        'primary': '#a6bec1',
+        'secondary': '#464e64',
+        'accent': '#777da0',
        },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

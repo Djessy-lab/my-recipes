@@ -28,8 +28,8 @@ const DisplayRecipes = async () => {
                 backgroundImage: `url(${recipe.image})`,
               }}>
               <div className="absolute inset-0 bg-gradient-to-b from-black hover:opacity-30 to-black opacity-50 rounded transition-all"></div>
-              <h2 className='mb-4 text-xl text-white font-bold z-10'>{recipe.title}</h2>
-              <small className='font-bold text-neutral-100 z-50'>{recipe.user.name}</small>
+              <h2 className='mb-4 text-xl text-white font-bold z-10 text-center'>{recipe.title}</h2>
+              <small className='font-bold text-neutral-100 z-50 text-center'>{recipe.user.name}</small>
             </div>
           </Link>
         ))}

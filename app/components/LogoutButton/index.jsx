@@ -7,6 +7,6 @@ export const LogoutButton = () => {
   return (
     <button onClick={async () => {
       await signOut()
-    }} ><LogOut size={32} className='text-emerald-600' /></button>
+    }} ><LogOut size={32} className='text-text hover:text-accent mt-[-10px]' /></button>
   )
 }

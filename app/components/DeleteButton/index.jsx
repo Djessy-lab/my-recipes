@@ -23,7 +23,7 @@ export default function DeleteButton({ recipeId }) {
     <div>
       <div className="flex justify-center">
         <button onClick={handleClick} >
-          <Trash size={32} color='red' />
+          <Trash size={32} className="text-text hover:text-red-500" />
         </button>
       </div>
     </div>

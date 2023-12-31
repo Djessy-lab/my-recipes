@@ -7,6 +7,6 @@ export const LoginButton = () => {
   return (
     <button onClick={async () => {
       await signIn()
-    }} ><LogIn size={32} className='text-emerald-600' /></button>
+    }} ><LogIn size={32} className='text-text hover:text-accent' /></button>
   )
 }

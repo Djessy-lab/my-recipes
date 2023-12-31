@@ -7,7 +7,7 @@ export default function EditButton({ recipeId }) {
     <div>
       <div className="flex justify-center">
         <Link href={`/edit/${recipeId}`}>
-          <Pen size={32} color='green' />
+          <Pen size={32} className="text-text hover:text-accent" />
         </Link>
       </div>
     </div>
