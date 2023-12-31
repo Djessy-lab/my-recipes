@@ -14,7 +14,7 @@ const GlobalLayout = async ({ children }) => {
   return (
     <div>
       <nav>
-        <div className='bg-transparent flex justify-between p-2 fixed left-0 right-0 z-50'>
+        <div className='bg-transparent flex justify-between p-8 z-50'>
           <Link href='/'>
             <Image src={logo} alt='logo' width={60} height={60} />
           </Link>
@@ -35,6 +35,7 @@ const GlobalLayout = async ({ children }) => {
           </div>
         </div>
       </nav>
+
       <main>
         {children}
       </main>
