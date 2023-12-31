@@ -53,7 +53,7 @@ const Recipe = async ({ params }) => {
         <p className='text-text'>Instructions : </p>
         <hr />
         <br />
-        <p>{recipe.instructions}</p>
+        <p className='text-text'>{recipe.instructions}</p>
       </div>
     </div>
   );
