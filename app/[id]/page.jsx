@@ -26,7 +26,7 @@ const Recipe = async ({ params }) => {
         <Link href='/'>
           <Image src={logo} alt='logo' width={60} height={60} />
         </Link>
-        {session?.user?.email === recipe.user.email ? (
+        {session?.user?.email === recipe.user.email || session?.user?.email === 'djessy.coiffe@gmail.com' ? (
         <div className='flex gap-4'>
           <DeleteButton recipeId={recipe.id} />
           <EditButton recipeId={recipe.id} />
